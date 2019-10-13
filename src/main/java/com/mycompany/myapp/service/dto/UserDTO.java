@@ -4,6 +4,7 @@ import com.mycompany.myapp.config.Constants;
 
 import com.mycompany.myapp.domain.Authority;
 import com.mycompany.myapp.domain.User;
+import com.mycompany.myapp.domain.UserJooae;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -73,6 +74,9 @@ public class UserDTO {
         this.authorities = user.getAuthorities().stream()
             .map(Authority::getName)
             .collect(Collectors.toSet());
+    }
+
+    public UserDTO(UserJooae userJooae) {
     }
 
     public Long getId() {

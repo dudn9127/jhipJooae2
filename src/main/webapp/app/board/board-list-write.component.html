@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="newForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="newForm">
+            <h2 id="myUserLabel">
+                Create a new s Post
+            </h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+
+               <div class="form-group">
+                    <label class="form-control-label">Title</label>
+                    <input type="text" class="form-control" name="tt" formControlName="tt">
+                    <div *ngIf="newForm.get('tt').invalid">
+                        <small class="form-text text-danger"
+                               *ngIf="newForm.get('tt').errors.required">
+                            This field is required.
+                        </small>
+
+                        <small class="form-text text-danger"
+                               *ngIf="newForm.get('tt').errors.maxlength">
+                            This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label">Content</label>
+                    <input type="text" style="height:100px;" class="form-control" name="content"
+                           formControlName="content">
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label">Image</label>
+                    <input type="text" class="form-control" name="imgUrl"
+                           formControlName="imgUrl">
+                </div>
+            </div>
+            <div>
+                <button type="button" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" [disabled]="newForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

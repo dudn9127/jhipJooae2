@@ -1,0 +1,46 @@
+<div>
+    <h2>
+        <span id="user-management-page-heading">Board</span>
+        <button class="btn btn-primary float-right jh-create-entity" [routerLink]="['./new']" >
+            <fa-icon [icon]="'plus'"></fa-icon> <span>Write</span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+                <th jhiSortBy="id"><span>ID</span><fa-icon [icon]="'sort'"></fa-icon></th>
+                <th><span>Title</span></th>
+                <th><span>Created</span></th>
+                <th><span>Modified</span></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let board of boards; trackBy: trackBoardIdentity">
+                <td>{{board.id}}</td>
+                <td>{{board.title}}</td>
+                <td>{{board.createdTime | date:'dd/MM/yy HH:mm'}}</td>
+                <td>{{board.modifiedDate | date:'dd/MM/yy HH:mm'}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit" class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit" class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="button" class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,6 @@
+diff a/.yo-rc.json b/.yo-rc.json	(rejected hunks)
+@@ -31,3 +31 @@
+-    "testFrameworks": [
+-      "protractor"
+-    ],
++    "testFrameworks": ["protractor"],

@@ -21,6 +21,11 @@ export const adminState: Routes = [
     loadChildren: () => import('./user-management/user-management.module').then(m => m.UserManagementModule)
   },
   {
+    path: 'board-list',
+
+    loadChildren: () => import('../board/board-list.module').then(m => m.BoardListModule)
+  },
+  {
     path: '',
     data: {
       authorities: ['ROLE_ADMIN']

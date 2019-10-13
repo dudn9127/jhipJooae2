@@ -8,6 +8,7 @@ import { UserService } from 'app/core/user/user.service';
 import { UserMgmtComponent } from './user-management.component';
 import { UserMgmtDetailComponent } from './user-management-detail.component';
 import { UserMgmtUpdateComponent } from './user-management-update.component';
+import { UserMgmtUpdateJooaeComponent } from 'app/admin/user-management/user-management-update-jooae.component';
 
 @Injectable({ providedIn: 'root' })
 export class UserMgmtResolve implements Resolve<any> {
@@ -49,6 +50,14 @@ export const userManagementRoute: Routes = [
   {
     path: 'new',
     component: UserMgmtUpdateComponent,
+    resolve: {
+      user: UserMgmtResolve
+    },
+    canActivate: [UserRouteAccessService]
+  },
+  {
+    path: 'newJooae',
+    component: UserMgmtUpdateJooaeComponent,
     resolve: {
       user: UserMgmtResolve
     },

@@ -982,7 +982,7 @@
                 <plugins>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-war-plugin</artifactId>
+
                         <version>${maven-war-plugin.version}</version>
                         <executions>
                             <execution>
@@ -992,7 +992,7 @@
                                 <phase>package</phase>
                             </execution>
                         </executions>
-                        <configuration>
+                        <configuration><artifactId>maven-war-plugin</artifactId>
                             <warSourceIncludes>WEB-INF/**,META-INF/**</warSourceIncludes>
                             <failOnMissingWebXml>false</failOnMissingWebXml>
                             <warSourceDirectory>target/classes/static/</warSourceDirectory>
